@@ -28,15 +28,31 @@ app.get("/", (res) => {
 // get links
 app.get("/search", async (req, res) => {
   const name = req.query.name;
-  const links = await getList(name);
-  res.send(links);
+  try {
+    const links = await getList(name);
+    res.send(links);
+  } catch (err) {
+    res.status(404);
+    res.send({
+      error: err.message,
+      fix: "Please check the name of your song",
+    });
+  }
 });
 
 // get lyrics
 app.get("/lyrics", async (req, res) => {
   const url = req.query.url.trim();
-  const lyrics = await getLyrics(url);
-  res.send({ lyrics });
+  try {
+    const lyrics = await getLyrics(url);
+    res.send({ lyrics });
+  } catch (err) {
+    res.status(404);
+    res.send({
+      error: err.message,
+      fix: "Please check the url",
+    });
+  }
 });
 
 app.listen(port, () => {
