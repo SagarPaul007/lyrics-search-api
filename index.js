@@ -30,6 +30,7 @@ app.get("/search", async (req, res) => {
   try {
     const links = await getList(name);
     res.send(links);
+    console.log(links);
   } catch (err) {
     res.status(404);
     res.send({
@@ -45,6 +46,7 @@ app.get("/lyrics", async (req, res) => {
   try {
     const lyrics = await getLyrics(url);
     res.send({ lyrics });
+    console.log(lyrics);
   } catch (err) {
     res.status(404);
     res.send({
