@@ -19,8 +19,6 @@ Server will start listening on port 3001 ... Inside index.js file you can change
 
 ## Search Songs
 
-<hr>
-
 Endpoint:-
 
 ```
@@ -30,8 +28,6 @@ http://localhost:3001/search?name={song_name}
 You will receive an array of objects. Every object will contain a title, subtitle and a <em>url</em>.
 
 ## Get lyrics
-
-<hr>
 
 Endpoint:-
 
